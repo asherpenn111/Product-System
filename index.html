@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>屋掌柜｜风格选择</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#50200A;
+  color:#fff;
+}
+
+/* 标题 */
+header{
+  padding:20px;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* 网格 */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  padding:20px;
+}
+
+/* 卡片 */
+.card{
+  height:180px;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  background:#333;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+/* 图片 */
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.85;
+}
+
+/* 文案 */
+.label{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-size:16px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>屋掌柜｜8大空间风格选择</header>
+
+<div class="grid">
+
+  <div class="card" onclick="openVR('modern')">
+    <img src="https://via.placeholder.com/400x300?text=Modern" />
+    <div class="label">现代极简</div>
+  </div>
+
+  <div class="card" onclick="openVR('natural')">
+    <img src="https://via.placeholder.com/400x300?text=Natural" />
+    <div class="label">自然被动式</div>
+  </div>
+
+  <div class="card" onclick="openVR('luxury')">
+    <img src="https://via.placeholder.com/400x300?text=Luxury" />
+    <div class="label">轻奢风</div>
+  </div>
+
+  <div class="card" onclick="openVR('japanese')">
+    <img src="https://via.placeholder.com/400x300?text=Japanese" />
+    <div class="label">日式原木</div>
+  </div>
+
+  <div class="card" onclick="openVR('minimal')">
+    <img src="https://via.placeholder.com/400x300?text=Minimal" />
+    <div class="label">极简黑白</div>
+  </div>
+
+  <div class="card" onclick="openVR('wabi')">
+    <img src="https://via.placeholder.com/400x300?text=WabiSabi" />
+    <div class="label">侘寂风</div>
+  </div>
+
+  <div class="card" onclick="openVR('smart')">
+    <img src="https://via.placeholder.com/400x300?text=SmartHome" />
+    <div class="label">智能家居</div>
+  </div>
+
+  <div class="card" onclick="openVR('eco')">
+    <img src="https://via.placeholder.com/400x300?text=Eco" />
+    <div class="label">环保健康</div>
+  </div>
+
+</div>
+
+<script>
+
+/* VR地址映射 */
+const vrMap = {
+  modern: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  natural: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  luxury: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  japanese: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  minimal: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  wabi: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  smart: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  eco: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html"
+}
+
+/* 打开VR */
+function openVR(style){
+  window.open(vrMap[style], "_blank");
+}
+
+</script>
+
+</body>
+</html>
