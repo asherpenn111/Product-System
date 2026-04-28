@@ -3,164 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>屋掌柜HOME MASTER｜风格选择</title>
 
 <style>
-body{
-  margin:0;
-  font-family:"PingFang SC","Microsoft YaHei UI",sans-serif;
-  background:#50200A;
-  color:#fff;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap');
 
-/* ===== LOGO ===== */
-.logo{
-  position:fixed;
-  top:15px;
-  right:15px;
-  width:80px;
-}
-.logo img{
-  width:100%;
-}
+  body {
+    margin: 0;
+    font-family: "PingFang SC", "Microsoft YaHei UI", "Noto Serif SC", sans-serif;
+    background: #50200A;
+    color: #fff;
+    min-height: 100vh;
+  }
 
-/* ===== 标题 ===== */
-header{
-  text-align:center;
-  font-size:clamp(22px,4vw,42px);
-  padding:30px 20px 10px;
-  letter-spacing:2px;
-}
+  /* ===== 标题 ===== */
+  header {
+    text-align: center;
+    font-size: clamp(20px, 3.5vw, 38px);
+    padding: 36px 20px 24px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #f5d98e;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
 
-/* ===== 网格 ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:16px;
-  padding:20px;
-}
+  /* ===== 大框容器 ===== */
+  .frame {
+    margin: 0 auto 40px;
+    max-width: 780px;
+    padding: 24px;
+    border: 2px solid #c9a84c;
+    border-radius: 20px;
+    box-shadow:
+      0 0 0 1px rgba(201,168,76,0.25),
+      0 0 30px rgba(201,168,76,0.15),
+      inset 0 0 30px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.15);
+    /* 金色双线效果 */
+    outline: 1px solid rgba(201,168,76,0.4);
+    outline-offset: -8px;
+  }
 
-/* ===== 卡片 ===== */
-.card{
-  height:180px;
-  border-radius:14px;
-  overflow:hidden;
-  cursor:pointer;
-  position:relative;
-  transition:0.3s;
-}
+  /* ===== 网格：2列4排 ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
 
-.card:hover{
-  transform:scale(1.04);
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
+  /* ===== 卡片 ===== */
+  .card {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 阴影衬底 */
+    box-shadow:
+      0 8px 24px rgba(0,0,0,0.55),
+      0 2px 6px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(201,168,76,0.15);
+  }
 
-/* 图片 */
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+  .card:hover {
+    transform: scale(1.03) translateY(-3px);
+    box-shadow:
+      0 16px 40px rgba(0,0,0,0.65),
+      0 4px 12px rgba(0,0,0,0.5),
+      0 0 0 1.5px rgba(201,168,76,0.5);
+  }
 
-/* 遮罩 */
-.card::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  width:100%;
-  height:50%;
-  background:linear-gradient(transparent, rgba(0,0,0,0.7));
-}
+  /* 固定图片尺寸 */
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
 
-/* 文案 */
-.label{
-  position:absolute;
-  bottom:12px;
-  left:12px;
-  font-size:16px;
-  font-weight:bold;
-}
+  /* 渐变遮罩 */
+  .card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.72));
+    pointer-events: none;
+  }
+
+  /* 标签文字 */
+  .label {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    z-index: 1;
+  }
+
+  /* 金色小装饰线 */
+  .label::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: #c9a84c;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* 响应式：小屏改单列 */
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .frame {
+      margin: 0 16px 32px;
+      padding: 16px;
+    }
+  }
 </style>
 </head>
 
 <body>
 
-<!-- LOGO -->
-<div class="logo">
-  <img src="https://asherpenn111.github.io/logo.png">
-</div>
+<header>屋掌柜 HOME MASTER｜8大空间风格选择</header>
 
-<header>屋掌柜HOME MASTER｜8大空间风格选择</header>
+<!-- 金色大框 -->
+<div class="frame">
+  <div class="grid">
 
-<div class="grid">
+    <div class="card" onclick="openVR('europe')">
+      <img src="https://picsum.photos/400/300?1" alt="传统欧式">
+      <div class="label">传统欧式</div>
+    </div>
 
-  <div class="card" onclick="openVR('europe')">
-    <img src="https://picsum.photos/400/300?1">
-    <div class="label">传统欧式</div>
+    <div class="card" onclick="openVR('milk')">
+      <img src="https://picsum.photos/400/300?2" alt="奶油风">
+      <div class="label">奶油风</div>
+    </div>
+
+    <div class="card" onclick="openVR('luxury')">
+      <img src="https://picsum.photos/400/300?3" alt="轻奢风">
+      <div class="label">轻奢风</div>
+    </div>
+
+    <div class="card" onclick="openVR('japanese')">
+      <img src="https://picsum.photos/400/300?4" alt="日式原木">
+      <div class="label">日式原木</div>
+    </div>
+
+    <div class="card" onclick="openVR('minimal')">
+      <img src="https://picsum.photos/400/300?5" alt="极简黑白">
+      <div class="label">极简黑白</div>
+    </div>
+
+    <div class="card" onclick="openVR('wabi')">
+      <img src="https://picsum.photos/400/300?6" alt="侘寂风">
+      <div class="label">侘寂风</div>
+    </div>
+
+    <div class="card" onclick="openVR('smart')">
+      <img src="https://picsum.photos/400/300?7" alt="智能家居">
+      <div class="label">智能家居</div>
+    </div>
+
+    <div class="card" onclick="openVR('eco')">
+      <img src="https://picsum.photos/400/300?8" alt="环保健康">
+      <div class="label">环保健康</div>
+    </div>
+
   </div>
-
-  <div class="card" onclick="openVR('milk')">
-    <img src="https://picsum.photos/400/300?2">
-    <div class="label">奶油风</div>
-  </div>
-
-  <div class="card" onclick="openVR('luxury')">
-    <img src="https://picsum.photos/400/300?3">
-    <div class="label">轻奢风</div>
-  </div>
-
-  <div class="card" onclick="openVR('japanese')">
-    <img src="https://picsum.photos/400/300?4">
-    <div class="label">日式原木</div>
-  </div>
-
-  <div class="card" onclick="openVR('minimal')">
-    <img src="https://picsum.photos/400/300?5">
-    <div class="label">极简黑白</div>
-  </div>
-
-  <div class="card" onclick="openVR('wabi')">
-    <img src="https://picsum.photos/400/300?6">
-    <div class="label">侘寂风</div>
-  </div>
-
-  <div class="card" onclick="openVR('smart')">
-    <img src="https://picsum.photos/400/300?7">
-    <div class="label">智能家居</div>
-  </div>
-
-  <div class="card" onclick="openVR('eco')">
-    <img src="https://picsum.photos/400/300?8">
-    <div class="label">环保健康</div>
-  </div>
-
 </div>
 
 <script>
-
-/* VR映射（已修正） */
 const vrMap = {
-  europe: "https://vr.justeasy.cn/view/g1777639f3409378-1777347551.html",
-  milk: "https://vr.justeasy.cn/view/617mg77d35f5k774-1777355846.html",
-  luxury: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  europe:   "https://vr.justeasy.cn/view/g1777639f3409378-1777347551.html",
+  milk:     "https://vr.justeasy.cn/view/617mg77d35f5k774-1777355846.html",
+  luxury:   "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
   japanese: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
-  minimal: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
-  wabi: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
-  smart: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
-  eco: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html"
+  minimal:  "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  wabi:     "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  smart:    "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
+  eco:      "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html"
 };
 
-/* 打开VR */
-function openVR(style){
+function openVR(style) {
   const url = vrMap[style];
-  if(url){
+  if (url) {
     window.open(url, "_blank");
-  }else{
+  } else {
     alert("该风格暂未配置");
   }
 }
-
 </script>
 
 </body>
