@@ -9,39 +9,51 @@
 <style>
 body{
   margin:0;
-  font-family:Arial;
+  font-family:"PingFang SC","Microsoft YaHei UI",sans-serif;
   background:#50200A;
   color:#fff;
 }
 
-/* 标题 */
-header{
-  padding:20px;
-  font-size:22px;
-  font-weight:bold;
+/* ===== LOGO ===== */
+.logo{
+  position:fixed;
+  top:15px;
+  right:15px;
+  width:80px;
+}
+.logo img{
+  width:100%;
 }
 
-/* 网格 */
+/* ===== 标题 ===== */
+header{
+  text-align:center;
+  font-size:clamp(22px,4vw,42px);
+  padding:30px 20px 10px;
+  letter-spacing:2px;
+}
+
+/* ===== 网格 ===== */
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
   padding:20px;
 }
 
-/* 卡片 */
+/* ===== 卡片 ===== */
 .card{
   height:180px;
-  border-radius:12px;
+  border-radius:14px;
   overflow:hidden;
   cursor:pointer;
   position:relative;
-  background:#333;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:scale(1.03);
+  transform:scale(1.04);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 /* 图片 */
@@ -49,14 +61,23 @@ header{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:0.85;
+}
+
+/* 遮罩 */
+.card::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:50%;
+  background:linear-gradient(transparent, rgba(0,0,0,0.7));
 }
 
 /* 文案 */
 .label{
   position:absolute;
-  bottom:10px;
-  left:10px;
+  bottom:12px;
+  left:12px;
   font-size:16px;
   font-weight:bold;
 }
@@ -65,47 +86,52 @@ header{
 
 <body>
 
+<!-- LOGO -->
+<div class="logo">
+  <img src="https://asherpenn111.github.io/logo.png">
+</div>
+
 <header>屋掌柜HOME MASTER｜8大空间风格选择</header>
 
 <div class="grid">
 
-  <div class="card" onclick="openVR('modern')">
-    <img src="https://via.placeholder.com/400x300?text=Europe" />
+  <div class="card" onclick="openVR('europe')">
+    <img src="https://picsum.photos/400/300?1">
     <div class="label">传统欧式</div>
   </div>
 
   <div class="card" onclick="openVR('natural')">
-    <img src="https://via.placeholder.com/400x300?text=Natural" />
+    <img src="https://picsum.photos/400/300?2">
     <div class="label">自然被动式</div>
   </div>
 
   <div class="card" onclick="openVR('luxury')">
-    <img src="https://via.placeholder.com/400x300?text=Luxury" />
+    <img src="https://picsum.photos/400/300?3">
     <div class="label">轻奢风</div>
   </div>
 
   <div class="card" onclick="openVR('japanese')">
-    <img src="https://via.placeholder.com/400x300?text=Japanese" />
+    <img src="https://picsum.photos/400/300?4">
     <div class="label">日式原木</div>
   </div>
 
   <div class="card" onclick="openVR('minimal')">
-    <img src="https://via.placeholder.com/400x300?text=Minimal" />
+    <img src="https://picsum.photos/400/300?5">
     <div class="label">极简黑白</div>
   </div>
 
   <div class="card" onclick="openVR('wabi')">
-    <img src="https://via.placeholder.com/400x300?text=WabiSabi" />
+    <img src="https://picsum.photos/400/300?6">
     <div class="label">侘寂风</div>
   </div>
 
   <div class="card" onclick="openVR('smart')">
-    <img src="https://via.placeholder.com/400x300?text=SmartHome" />
+    <img src="https://picsum.photos/400/300?7">
     <div class="label">智能家居</div>
   </div>
 
   <div class="card" onclick="openVR('eco')">
-    <img src="https://via.placeholder.com/400x300?text=Eco" />
+    <img src="https://picsum.photos/400/300?8">
     <div class="label">环保健康</div>
   </div>
 
@@ -113,9 +139,9 @@ header{
 
 <script>
 
-/* VR地址映射 */
+/* VR映射（已修正） */
 const vrMap = {
-  Europe: "https://vr.justeasy.cn/view/g1777639f3409378-1777347551.html",
+  europe: "https://vr.justeasy.cn/view/g1777639f3409378-1777347551.html",
   natural: "https://vr.justeasy.cn/view/g1777639f3409378-1777347551.html",
   luxury: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
   japanese: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
@@ -123,11 +149,16 @@ const vrMap = {
   wabi: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
   smart: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html",
   eco: "https://vr.justeasy.cn/view/u1x7c77a72h62592-1777262592.html"
-}
+};
 
 /* 打开VR */
 function openVR(style){
-  window.open(vrMap[style], "_blank");
+  const url = vrMap[style];
+  if(url){
+    window.open(url, "_blank");
+  }else{
+    alert("该风格暂未配置");
+  }
 }
 
 </script>
